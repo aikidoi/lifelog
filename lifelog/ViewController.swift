@@ -7,19 +7,46 @@
 //
 
 import UIKit
+import RealmSwift
+import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
 
+    @IBOutlet weak var statusDisplay: UILabel!
+    @IBOutlet weak var locationDisplay: UILabel!
+    
+    var myLocationManager: CLLocationManager!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        myLocationManager = CLLocationManager()
+        myLocationManager.delegate = self
+        myLocationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        myLocationManager.distanceFilter = 10
+        myLocationManager.startUpdatingLocation()
+        
+        let auth_status = CLLocationManager.authorizationStatus()
+        
+        if(auth_status == CLAuthorizationStatus.notDetermined) {
+            print("DEBUG: 位置情報許可未取得です")
+            self.myLocationManager.requestAlwaysAuthorization()
+        }
+    
     }
 
+    func locationManager(manager: CLLocationManager!,didUpdateLocations locations: [AnyObject]!){
+        locationDisplay.text = "緯度：\(String(describing: manager.location?.coordinate.latitude))" + "緯度：\(String(describing: manager.location?.coordinate.longitude))"
+    }
+    
+    private func locationManager(manager: CLLocationManager!,didFailWithError error: NSError!){
+        print("error")
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
 }
 

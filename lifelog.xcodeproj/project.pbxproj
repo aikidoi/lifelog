@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		294EFF37302620BDB46A1035 /* Pods_lifelog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C35D15D9FE744AE8F0D3981E /* Pods_lifelog.framework */; };
 		D4C7069B2021E3DB005C4ADD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C7069A2021E3DB005C4ADD /* AppDelegate.swift */; };
 		D4C7069D2021E3DB005C4ADD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C7069C2021E3DB005C4ADD /* ViewController.swift */; };
 		D4C706A02021E3DB005C4ADD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4C7069E2021E3DB005C4ADD /* Main.storyboard */; };
 		D4C706A22021E3DB005C4ADD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4C706A12021E3DB005C4ADD /* Assets.xcassets */; };
 		D4C706A52021E3DB005C4ADD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4C706A32021E3DB005C4ADD /* LaunchScreen.storyboard */; };
+		D4C706AD2021EB11005C4ADD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C706AC2021EB11005C4ADD /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A3067F14196EC056222E009 /* Pods-lifelog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lifelog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lifelog/Pods-lifelog.debug.xcconfig"; sourceTree = "<group>"; };
+		8ED7CE021107DE77FDEFCD4F /* Pods-lifelog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lifelog.release.xcconfig"; path = "Pods/Target Support Files/Pods-lifelog/Pods-lifelog.release.xcconfig"; sourceTree = "<group>"; };
+		C35D15D9FE744AE8F0D3981E /* Pods_lifelog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lifelog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4C706972021E3DB005C4ADD /* lifelog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lifelog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4C7069A2021E3DB005C4ADD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4C7069C2021E3DB005C4ADD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +27,7 @@
 		D4C706A12021E3DB005C4ADD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4C706A42021E3DB005C4ADD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4C706A62021E3DB005C4ADD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4C706AC2021EB11005C4ADD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4C706AD2021EB11005C4ADD /* CoreLocation.framework in Frameworks */,
+				294EFF37302620BDB46A1035 /* Pods_lifelog.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C640B04B9B1D7AA5F11DD1F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7A3067F14196EC056222E009 /* Pods-lifelog.debug.xcconfig */,
+				8ED7CE021107DE77FDEFCD4F /* Pods-lifelog.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		54A02B330F4EC4972BC949AB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D4C706AC2021EB11005C4ADD /* CoreLocation.framework */,
+				C35D15D9FE744AE8F0D3981E /* Pods_lifelog.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D4C7068E2021E3DB005C4ADD = {
 			isa = PBXGroup;
 			children = (
 				D4C706992021E3DB005C4ADD /* lifelog */,
 				D4C706982021E3DB005C4ADD /* Products */,
+				1C640B04B9B1D7AA5F11DD1F /* Pods */,
+				54A02B330F4EC4972BC949AB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +99,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D4C706A92021E3DB005C4ADD /* Build configuration list for PBXNativeTarget "lifelog" */;
 			buildPhases = (
+				48569C647274FE740EE5DD04 /* [CP] Check Pods Manifest.lock */,
 				D4C706932021E3DB005C4ADD /* Sources */,
 				D4C706942021E3DB005C4ADD /* Frameworks */,
 				D4C706952021E3DB005C4ADD /* Resources */,
+				C2A3A805855B69E0CF27A774 /* [CP] Embed Pods Frameworks */,
+				6A89769B21EAF5561271BC7B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,6 +162,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		48569C647274FE740EE5DD04 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6A89769B21EAF5561271BC7B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lifelog/Pods-lifelog-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C2A3A805855B69E0CF27A774 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lifelog/Pods-lifelog-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D4C706932021E3DB005C4ADD /* Sources */ = {
@@ -259,7 +338,9 @@
 		};
 		D4C706AA2021E3DB005C4ADD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A3067F14196EC056222E009 /* Pods-lifelog.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5DT88965V7;
 				INFOPLIST_FILE = lifelog/Info.plist;
@@ -272,7 +353,9 @@
 		};
 		D4C706AB2021E3DB005C4ADD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8ED7CE021107DE77FDEFCD4F /* Pods-lifelog.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5DT88965V7;
 				INFOPLIST_FILE = lifelog/Info.plist;
@@ -302,6 +385,7 @@
 				D4C706AB2021E3DB005C4ADD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

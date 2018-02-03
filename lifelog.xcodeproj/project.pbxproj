@@ -14,6 +14,8 @@
 		D4C706A22021E3DB005C4ADD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4C706A12021E3DB005C4ADD /* Assets.xcassets */; };
 		D4C706A52021E3DB005C4ADD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4C706A32021E3DB005C4ADD /* LaunchScreen.storyboard */; };
 		D4C706AD2021EB11005C4ADD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C706AC2021EB11005C4ADD /* CoreLocation.framework */; };
+		D4D4827B202567F000F156FA /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4D4827A202567F000F156FA /* CoreMotion.framework */; };
+		D4D4827D2025835D00F156FA /* TimeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D4827C2025835D00F156FA /* TimeLine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		D4C706A42021E3DB005C4ADD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4C706A62021E3DB005C4ADD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4C706AC2021EB11005C4ADD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D4D4827A202567F000F156FA /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		D4D4827C2025835D00F156FA /* TimeLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4D4827B202567F000F156FA /* CoreMotion.framework in Frameworks */,
 				D4C706AD2021EB11005C4ADD /* CoreLocation.framework in Frameworks */,
 				294EFF37302620BDB46A1035 /* Pods_lifelog.framework in Frameworks */,
 			);
@@ -55,6 +60,7 @@
 		54A02B330F4EC4972BC949AB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D4D4827A202567F000F156FA /* CoreMotion.framework */,
 				D4C706AC2021EB11005C4ADD /* CoreLocation.framework */,
 				C35D15D9FE744AE8F0D3981E /* Pods_lifelog.framework */,
 			);
@@ -84,6 +90,7 @@
 			children = (
 				D4C7069A2021E3DB005C4ADD /* AppDelegate.swift */,
 				D4C7069C2021E3DB005C4ADD /* ViewController.swift */,
+				D4D4827C2025835D00F156FA /* TimeLine.swift */,
 				D4C7069E2021E3DB005C4ADD /* Main.storyboard */,
 				D4C706A12021E3DB005C4ADD /* Assets.xcassets */,
 				D4C706A32021E3DB005C4ADD /* LaunchScreen.storyboard */,
@@ -217,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4C7069D2021E3DB005C4ADD /* ViewController.swift in Sources */,
+				D4D4827D2025835D00F156FA /* TimeLine.swift in Sources */,
 				D4C7069B2021E3DB005C4ADD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

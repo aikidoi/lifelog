@@ -13,34 +13,36 @@ import CoreMotion
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
-    @IBOutlet weak var statusDisplay: UILabel!
-    @IBOutlet weak var locationDisplay: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     var myLocationManager: CLLocationManager!
     var myActivityManeger: CMMotionActivityManager!
+    var activity_status: String!
+
     
     let realm = try! Realm()
+    var timeLine: TimeLine
     var actArray = try! Realm().objects(TimeLine.self).sorted(byKeyPath:"id", ascending:false)
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         
+        super.viewDidLoad()
+
         //位置情報の取得
         myLocationManager = CLLocationManager()
         myLocationManager.delegate = self
         myLocationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         myLocationManager.distanceFilter = 10
         if(CLLocationManager.authorizationStatus() == CLAuthorizationStatus.notDetermined) {
-            print("DEBUG: 位置情報許可未取得です")
             self.myLocationManager.requestAlwaysAuthorization()
         }
         myLocationManager.startUpdatingLocation()
         
         //アクティビティ情報の取得
         myActivityManeger = CMMotionActivityManager()
-        
+
         if(CMMotionActivityManager.isActivityAvailable() == true) {
+            
             func update(data: CMMotionActivity?) {
                 guard let data = data else {
                     return
@@ -48,24 +50,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 DispatchQueue.main.async {
                     if data.stationary == true{
                         if data.automotive == true{
-                            self.statusDisplay.text = "乗車中"
+                           self.activity_status = "乗車中"
                         } else {
-                            self.statusDisplay.text = "静止中"
+                            self.activity_status = "静止中"
                         }
                     }
                     if data.walking == true{
-                        self.statusDisplay.text = "歩行中"
+                        self.activity_status = "歩行中"
                     }
                     if data.cycling == true{
-                        self.statusDisplay.text = "サイクリング中"
+                        self.activity_status = "サイクリング中"
                     }
                     if data.running == true{
-                        self.statusDisplay.text = "ランニング中"
+                        self.activity_status = "ランニング中"
                     }
                 }
             }
             myActivityManeger.startActivityUpdates(to: OperationQueue.current!, withHandler: update)
-            
         }else{
             print("DEBUG: Motion利用不可")
         }
@@ -79,11 +80,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let location = locations.first
         let latitude = location?.coordinate.latitude
         let longitude = location?.coordinate.longitude
-        let loc_data = TimeLine()
-        loc_data.latitude = latitude
-        loc_data.longitude = longitude
-        try! realm.write{
-            
+        let now = NSDate()
+        typealias CLLocationDegrees = Double
+        try! realm.write {
+            self.timeLine.date = now
+            self.timeLine.latitude = latitude
+            self.timeLine.longitude = longitude
+            self.timeLine.status = activity_status
         }
     }
     
@@ -104,5 +107,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         return cell
     }
-    
+
+    override func viewWillDisappear(_ animated: Bool) {
+
+    }
 }
